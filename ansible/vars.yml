@@ -1,0 +1,6 @@
+---
+# Variables
+
+maven:             apache-maven-3.3.9
+maven_archive:     "{{ maven }}-bin.tar.gz"
+maven_archive_md5: 516923b3955b6035ba6b0a5b031fbd8b
