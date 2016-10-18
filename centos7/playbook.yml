@@ -1,4 +1,7 @@
 ---
+# vim: set ft=ansible :
+# CentOS 7 Playbook
+
 - hosts: centos7
   gather_facts: false
   become: true

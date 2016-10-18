@@ -1,4 +1,5 @@
 ---
+# vim: set ft=ansible :
 # Tasks for CentOS
 
 - name: install yum packages
@@ -10,7 +11,7 @@
   get_url:
     url: http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/{{ maven_archive }}
     dest: /vagrant/{{ maven_archive }}
-    checksum: md5:{{ maven_archive_md5}}
+    checksum: md5:{{ maven_archive_md5 }}
 
 - name: install maven
   unarchive: src=/vagrant/{{ maven_archive }} dest=/opt copy=no
