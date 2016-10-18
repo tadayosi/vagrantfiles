@@ -17,7 +17,10 @@
   unarchive: src=/vagrant/{{ maven_archive }} dest=/opt copy=no
 
 - name: set up env
-  shell: echo {{ item }} >> /home/vagrant/.bashrc
+  shell: echo {{ item }} >> .bashrc
+  args:
+    chdir:   /home/vagrant/
+    creates: .bashrc.done
   with_items:
     - alias ls=\'ls -F --color=auto\'
     - alias ll=\'ls -l\'
@@ -25,3 +28,9 @@
     - export JAVA_HOME=/etc/alternatives/java_sdk
     - export MAVEN_HOME=/opt/{{ maven }}
     - export PATH=\$MAVEN_HOME/bin:\$PATH
+
+- name: put "set up env" done file
+  shell: touch .bashrc.done
+  args:
+    chdir:   /home/vagrant/
+    creates: .bashrc.done
