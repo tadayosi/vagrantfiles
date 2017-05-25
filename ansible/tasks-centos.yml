@@ -6,6 +6,7 @@
   yum: name={{ item }} state=latest update_cache=yes
   with_items:
     - java-1.8.0-openjdk-devel
+    - git
 
 - name: download maven
   get_url:
