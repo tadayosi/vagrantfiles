@@ -10,7 +10,7 @@
 
 - name: download maven
   get_url:
-    url: http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/{{ maven_archive }}
+    url: http://www-eu.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/{{ maven_archive }}
     dest: /vagrant/{{ maven_archive }}
     checksum: md5:{{ maven_archive_md5 }}
 
