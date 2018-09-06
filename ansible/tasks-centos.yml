@@ -12,7 +12,7 @@
   get_url:
     url: http://www-eu.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/{{ maven_archive }}
     dest: /vagrant/{{ maven_archive }}
-    checksum: md5:{{ maven_archive_md5 }}
+    checksum: sha512:{{ maven_archive_sha512 }}
 
 - name: install maven
   unarchive: src=/vagrant/{{ maven_archive }} dest=/opt copy=no

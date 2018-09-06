@@ -2,7 +2,7 @@
 # vim: set ft=ansible :
 # Variables
 
-maven_version:     3.5.0
+maven_version:     3.5.4
 maven:             "apache-maven-{{ maven_version }}"
 maven_archive:     "{{ maven }}-bin.tar.gz"
-maven_archive_md5: 35c39251d2af99b6624d40d801f6ff02
+maven_archive_sha512: 2a803f578f341e164f6753e410413d16ab60fabe31dc491d1fe35c984a5cce696bc71f57757d4538fe7738be04065a216f3ebad4ef7e0ce1bb4c51bc36d6be86
