@@ -16,6 +16,9 @@ tar -xf go$GO_VERSION.linux-amd64.tar.gz
 rm -rf /usr/local/go
 mv go /usr/local/
 
+curl -LO https://raw.githubusercontent.com/kura/go-bash-completion/main/etc/bash_completion.d/go
+mv go /etc/bash_completion.d/
+
 # oc / kubectl
 OKD_VERSION=4.8.0-0.okd-2021-11-14-052418
 if [ ! -e openshift-client-linux-$OKD_VERSION.tar.gz ]; then
