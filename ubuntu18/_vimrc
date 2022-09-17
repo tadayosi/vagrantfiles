@@ -1,0 +1,3 @@
+map <C-s> :w<CR>
+imap <C-s> <esc>:w<CR>
+map <C-d> :q<CR>
