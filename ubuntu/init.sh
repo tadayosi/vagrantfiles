@@ -12,23 +12,27 @@ GO_VERSION=1.17.13
 if [ ! -e go$GO_VERSION.linux-amd64.tar.gz ]; then
   curl -LO https://golang.org/dl/go$GO_VERSION.linux-amd64.tar.gz
 fi
-tar -xf go$GO_VERSION.linux-amd64.tar.gz
 rm -rf /usr/local/go
-mv go /usr/local/
+tar -xf go$GO_VERSION.linux-amd64.tar.gz -C /usr/local
 
 curl -LO https://raw.githubusercontent.com/kura/go-bash-completion/main/etc/bash_completion.d/go
 mv go /etc/bash_completion.d/
 
 # oc / kubectl
-OKD_VERSION=4.8.0-0.okd-2021-11-14-052418
-if [ ! -e openshift-client-linux-$OKD_VERSION.tar.gz ]; then
-  curl -LO https://github.com/openshift/okd/releases/download/$OKD_VERSION/openshift-client-linux-$OKD_VERSION.tar.gz
+#OKD_VERSION=4.8.0-0.okd-2021-11-14-052418
+#if [ ! -e openshift-client-linux-$OKD_VERSION.tar.gz ]; then
+#  curl -LO https://github.com/openshift/okd/releases/download/$OKD_VERSION/openshift-client-linux-$OKD_VERSION.tar.gz
+#fi
+#tar -xf openshift-client-linux-$OKD_VERSION.tar.gz -C /usr/local/bin oc kubectl
+#chmod 755 /usr/local/bin/oc
+#chmod 755 /usr/local/bin/kubectl
+
+# stern
+STERN_VERSION=1.21.0
+if [ ! -e stern_${STERN_VERSION}_linux_amd64.tar.gz ]; then
+  curl -LO https://github.com/stern/stern/releases/download/v${STERN_VERSION}/stern_${STERN_VERSION}_linux_amd64.tar.gz
 fi
-tar -xf openshift-client-linux-$OKD_VERSION.tar.gz oc kubectl
-mv oc /usr/local/bin/
-mv kubectl /usr/local/bin/
-chmod 755 /usr/local/bin/oc
-chmod 755 /usr/local/bin/kubectl
+tar -xf stern_${STERN_VERSION}_linux_amd64.tar.gz -C /usr/local/bin stern
 
 # microshift
 sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
